@@ -86,13 +86,20 @@ copyBtn.addEventListener("click", () => {
 	copyText();
 })
 
-const mqlDesk = matchMedia("(min-width: 768px)");
-const mqlMovil = matchMedia("(max-width: 768px)");
 
-//Si la resolución es mayor a 768px...
-mqlDesk.addEventListener("change", mql => {
+// ============ *** MEDIA QUERIES *** ================
+
+const mqlWidthDesk = matchMedia("(min-width: 768px)");
+const mqlWidthMovil = matchMedia("(max-width: 768px)");
+
+const mqlHeightDesk = matchMedia("(min-height: 613px)");
+const mqlHeightMovil = matchMedia("(max-height: 613px)");
+
+//Si la resolución horizontal es mayor a 768px...
+mqlWidthDesk.addEventListener("change", mql => {
 	if (mql.matches) {
 		console.log("Hola Desktop");
+
 		const boxMuñeco = document.querySelector(".box-muñeco");
   		boxMuñeco.style.display = "block";
 	}
@@ -101,14 +108,49 @@ mqlDesk.addEventListener("change", mql => {
 	}
 })
 
-//Si la resolución es menor a 768px...
-mqlMovil.addEventListener("change", mql => {
+//Si la resolución horizontal es menor a 768px...
+mqlWidthMovil.addEventListener("change", mql => {
 	if (mql.matches) {
 		console.log("Hola Movil");	
+
 		const boxMuñeco = document.querySelector(".box-muñeco");
   		boxMuñeco.style.display = "none";
 	}
 	else {
 		console.log("Chau Movil");
+	}
+})
+
+//Si la resolución vertical es mayor a 613px...
+mqlHeightDesk.addEventListener("change", mql => {
+	if (mql.matches && screen.width >= 768) {
+		console.log("Hola Desktop");	
+
+		const boxMuñeco = document.querySelector(".box-muñeco");
+  		boxMuñeco.style.display = "block";
+	}
+	else {
+		console.log("Chau Desktop");
+	}
+})
+
+//Si la resolución vertical es menor a 613px...
+mqlHeightMovil.addEventListener("change", mql => {
+	if (mql.matches && screen.width >= 768) {
+		console.log("Hola Movil");	
+
+		const boxMuñeco = document.querySelector(".box-muñeco");
+  		boxMuñeco.style.display = "none";
+	}
+	else {
+		console.log("Chau Movil");
+	}
+})
+
+
+document.addEventListener("DOMContentLoaded", () => {
+	const boxMuñeco = document.querySelector(".box-muñeco");
+	if (screen.width > 768) {
+		boxMuñeco.style.display = "block";
 	}
 })

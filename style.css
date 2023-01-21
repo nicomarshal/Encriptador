@@ -9,7 +9,7 @@ body {
 .container {
 	display: grid;
 	grid-template-columns: 1fr minmax(min-content, 480px);
-	grid-template-rows: 1fr 4fr;
+	grid-template-rows: minmax(128px, 168px) 1fr;
 	width: 100%;
 	height: 100%;
 	max-width: 1440px;
@@ -40,15 +40,23 @@ main {
 }
 
 .main-article {
+	height: 100%;
 	width: 100%;
-	/*min-width: 369px;*/
 	max-width: 680px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	row-gap: 64px;
+}
+
+.box-textarea {
+	height: 100%;
+	width: 100%;
+	max-height: 600px;
 }
 
 .text-area {
+	height: 100%;
 	width: 100%;
 	background: #F3F5FC;
 
@@ -72,7 +80,6 @@ main {
 
 .exclamation {
 	width: 100%;
-	max-width: 329px;
 	height: 18px;
 	display: flex;
 	justify-content: flex-start;
@@ -87,7 +94,7 @@ main {
 }
 
 .exc-text {
-	width: 205px;
+	width: 228px;
 	height: 18px;
 
 	color: #495057;
@@ -101,14 +108,20 @@ main {
 	opacity: 0.8;
 }
 
+.box-buttons {
+	width: 100%;
+	height: 100%;
+    max-height: 173px;
+}
+
 .buttons {
 	width: 100%;
-	height: 67px;
+	height: auto;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	column-gap: 24px;
-	margin-bottom: 72px;
+	margin-bottom: 40px;
 }
 
 .btn-encrypt {
@@ -171,7 +184,6 @@ aside {
 	background: #FFFFFF;
 	border-radius: 32px;
 	box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.2);
-	padding: 32px;
 	margin: 40px 40px 40px 0;
 
 	display: flex;
@@ -181,8 +193,13 @@ aside {
 	gap: 32px;
 }
 
+.aside-message {
+	padding: 0 32px 0 32px;
+}
+
 .box-muñeco {
 	width: 100%;
+	display: none;
 }
 
 .muñeco-img {
@@ -225,7 +242,8 @@ aside {
 
 .aside-response {
 	justify-content: space-between;	
-	gap: 64px;
+	row-gap: 64px;
+	padding: 32px;
 }
 
 .box-response {
@@ -273,20 +291,20 @@ aside {
 
 @media screen and (max-width: 768px) {
 	.container {
-		height: auto;
 		max-width: 768px;
-		max-height: none;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
+	}
+
+	header {
+		height: 100%;
+		min-height: 161px;
+   		max-height: 237px;
 	}
 
 	.header-section {
-		width: 688px;
-		margin-top: 73.42px;
-		margin-left: 0;
-		margin-bottom: 116px;
+		margin-top: 73px;
 	}
 
 	main {
@@ -294,121 +312,111 @@ aside {
 	}
 
 	.main-section {
-		margin-left: 0;
+		justify-content: center;
 	}
 
-	.text-area{
-		width: 688px;
-		height: auto;
+	.main-article {
+		max-width: 688px;
 	}
 
-	.exclamation {
-		width: 229px;
+	.box-buttons {
+		max-height: 165px;
 	}
 
 	.buttons {
-		width: 688px;
-		margin-bottom: 64px;
+		margin-bottom: 40px;
 	}
 
 	.btn-encrypt {
-		width: 332px;
+		min-width: 135.5px;
+		max-width: 332px;
 	}
 
 	.btn-decrypt {
-		width: 332px;
-	}
-
-	aside {
-		padding: 0px;
+		min-width: 135.5px;
+		max-width: 332px;
 	}
 
 	.aside-section {
-		width: 688px;
-		height: auto;
+		justify-content: center;
 	}
 
 	.aside-message {
-		width: 100%;
-	}
-
-	.message-1 {
-		width: 624px;
-		height: 29px;
-	}
-
-	.message-2 {
-		width: 624px;
-		height: 24px;
+		max-width: none;
+		padding: 32px;
+		margin: 0 40px 40px 40px;
 	}
 
 	.aside-response {
-		max-height: 350px;
-		width: 100%;
-	}
-
-	.box-response {
-		width: 100%;
-	}
-
-	.box-copy {
-		width: 100%;
-	}
-
-	.btn-copy {
-		width: 100%;
+		max-width: none;
+		padding: 32px;
+		margin: 0 40px 40px 40px;
+		row-gap: 32px;
 	}
 }
 
 @media screen and (max-width: 375px) {
 	.container {
+		min-width: 275px;
 		max-width: 375px;
 	}
 
 	header {
 		justify-self: center;
+		min-height: 96px;
+		max-height: 152px;
 	}
 
 	.header-section {
-		width: 347px;
+		margin-left: 16px;
+		margin-top: 24px;
 	}
 
-	.text-area{
-		width: 343px;
+	.main-section {
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+
+	.main-article {
+		max-width: 343px;
+		row-gap: 40px;
 	}
 
 	.exclamation {
-		width: 252px;
+		max-width: 252px;
+	}
+
+	.box-buttons {
+		max-height: 256px;
 	}
 
 	.buttons {
-		width: 343px;
-		height: 158px;
 		flex-direction: column;
 		justify-content: center;
+		row-gap: 24px;
 	}
 
 	.btn-encrypt {
-		width: 343px;
+		max-width: none;
 	}
 
 	.btn-decrypt {
-		width: 343px;
+		max-width: none;
 	}
 
-	.aside-section {
-		width: 327px;
+	.aside-message {
+		margin: 0 16px 40px 16px;
+	}
+
+	.aside-response {
+		margin: 0 16px 40px 16px;
 	}
 
 	.message-1 {
-		width: 263px;
-		height: 58px;
 		font-size: 24px;
 	}
 
 	.message-2 {
-		width: 263px;
-		height: 48px;
 		font-size: 16px;
 	}
 }
