@@ -97,15 +97,20 @@ const mqlHeightMovil = matchMedia("(max-height: 613px)");
 
 //Si la resolución horizontal es mayor a 768px...
 mqlWidthDesk.addEventListener("change", mql => {
-	if (mql.matches) {
+	if (mql.matches && screen.availHeight > 613) {
+		console.log("Entré");
 		console.log("Hola Desktop");
 
 		const boxMuñeco = document.querySelector(".box-muñeco");
   		boxMuñeco.style.display = "block";
 	}
-	else {
-		console.log("Chau Desktop");
+	if (mql.matches && screen.availHeight < 613) {
+		console.log("Hola Desktop");
+
+		const boxMuñeco = document.querySelector(".box-muñeco");
+  		boxMuñeco.style.display = "none";
 	}
+	console.log("Chau Desktop");
 })
 
 //Si la resolución horizontal es menor a 768px...
@@ -123,7 +128,7 @@ mqlWidthMovil.addEventListener("change", mql => {
 
 //Si la resolución vertical es mayor a 613px...
 mqlHeightDesk.addEventListener("change", mql => {
-	if (mql.matches && screen.width >= 768) {
+	if (mql.matches && screen.availWidth >= 768) {
 		console.log("Hola Desktop");	
 
 		const boxMuñeco = document.querySelector(".box-muñeco");
@@ -136,7 +141,7 @@ mqlHeightDesk.addEventListener("change", mql => {
 
 //Si la resolución vertical es menor a 613px...
 mqlHeightMovil.addEventListener("change", mql => {
-	if (mql.matches && screen.width >= 768) {
+	if (mql.matches && screen.availWidth >= 768) {
 		console.log("Hola Movil");	
 
 		const boxMuñeco = document.querySelector(".box-muñeco");
@@ -151,7 +156,7 @@ mqlHeightMovil.addEventListener("change", mql => {
 //INTENTER CON FUNCION ANONIMA AUTOEJECUTABLE
 document.addEventListener("DOMContentLoaded", () => {
 	const boxMuñeco = document.querySelector(".box-muñeco");
-	if (screen.width > 768) {
+	if (screen.availWidth > 768 && screen.availHeight > 613) {
 		boxMuñeco.style.display = "block";
 	}
 })
