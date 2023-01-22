@@ -70,7 +70,7 @@ function changeDisplay() {
 }
 
 function validateText(text) {
-	const regExp = /^[a-z]+$/;
+	const regExp = /^[a-z ]+$/;
 	return regExp.test(text);
 }
 
@@ -148,6 +148,7 @@ mqlHeightMovil.addEventListener("change", mql => {
 })
 
 
+//INTENTER CON FUNCION ANONIMA AUTOEJECUTABLE
 document.addEventListener("DOMContentLoaded", () => {
 	const boxMuñeco = document.querySelector(".box-muñeco");
 	if (screen.width > 768) {
