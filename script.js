@@ -92,8 +92,8 @@ copyBtn.addEventListener("click", () => {
 const mqlWidthDesk = matchMedia("(min-width: 768px)");
 const mqlWidthMovil = matchMedia("(max-width: 768px)");
 
-const mqlHeightDesk = matchMedia("(min-height: 613px)");
-const mqlHeightMovil = matchMedia("(max-height: 613px)");
+const mqlHeightDesk = matchMedia("(min-height: 535px)");
+const mqlHeightMovil = matchMedia("(max-height: 535px)");
 
 //Si la resolución horizontal es mayor a 768px...
 mqlWidthDesk.addEventListener("change", mql => {
@@ -121,7 +121,7 @@ mqlWidthMovil.addEventListener("change", mql => {
 	}
 })
 
-//Si la resolución vertical es mayor a 613px...
+//Si la resolución vertical es mayor a 535px...
 mqlHeightDesk.addEventListener("change", mql => {
 	if (mql.matches && screen.width >= 768) {
 		console.log("Hola Desktop");	
@@ -134,7 +134,7 @@ mqlHeightDesk.addEventListener("change", mql => {
 	}
 })
 
-//Si la resolución vertical es menor a 613px...
+//Si la resolución vertical es menor a 535px...
 mqlHeightMovil.addEventListener("change", mql => {
 	if (mql.matches && screen.width >= 768) {
 		console.log("Hola Movil");	
